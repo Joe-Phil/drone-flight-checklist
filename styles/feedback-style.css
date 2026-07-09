@@ -1,0 +1,89 @@
+.feedback-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+.feedback-card {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 300px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+.feedback-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card-header {
+    text-align: center;
+    width: 100%;
+}
+.card-header i {
+    color: #0097da;
+    margin-bottom: 15px;
+}
+.card-header h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+.card-description {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+    line-height: 1.4;
+}
+.feedback-button {
+    background-color: #F9A825;
+    color: #000000;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+    transition: background 0.2s;
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.feedback-button:hover {
+    background-color: #e69800;
+    color: #000000;
+}
+
+@media (max-width: 1400px) {
+    .feedback-grid {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .feedback-card {
+        width: 100% !important;
+        min-height: 280px;
+        margin-bottom: 20px;
+        padding: 30px;
+    }
+    .card-header h2 {
+        margin-bottom: 10px;
+    }
+    .card-description {
+        margin: 15px 0;
+    }
+}

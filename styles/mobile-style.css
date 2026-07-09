@@ -1,0 +1,105 @@
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.qr-section {
+    margin-top: 20px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+.qr-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 25px;
+}
+.qr-text {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+.download-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    max-width: 600px;
+    min-width: 300px;
+    margin-top: 20px;
+}
+.download-card {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+    box-sizing: border-box;
+}
+.download-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+.download-card-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.download-card-info i {
+    color: #0097da;
+    font-size: 24px;
+}
+.download-card-text {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+}
+.download-link {
+    background-color: #F9A825;
+    color: #000000 !important;
+    text-decoration: none !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+.download-link:hover {
+    background-color: #e69800;
+}
+
+@media (max-width: 1400px) {
+    .content-container {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .qr-section {
+        width: 100%;
+        max-width: 360px;
+        box-sizing: border-box;
+    }
+    .download-cards-container {
+        width: 100%;
+        max-width: 500px;
+        min-width: unset;
+    }
+    .download-card {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+    }
+}

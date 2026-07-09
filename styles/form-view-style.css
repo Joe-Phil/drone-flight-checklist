@@ -1,0 +1,697 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Ensure page background stays consistent while adding fields */
+html, body {
+    background-color: #e8e8e8;
+}
+
+#form-name:focus, #form-type-dropdown:focus, .statement-input:focus, .answer-option select:focus, .dropdown-field select:focus {
+    outline: none;
+    color: #5D7C7E;
+}
+
+/* Content area with sidebar */
+.form-view-content {
+    width: 85%;
+    margin: 75px;
+}
+
+.form-view-content #container {
+    position: relative;
+    width: 100%;
+}
+
+.top-bar-inline {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* nav bar */
+
+.top-bar {
+    height: 100px;
+    width: 100%;
+    background-color: #0097da;
+    color: #FFFFFF;
+    box-shadow: 5px 5px 10px rgb(196, 196, 196);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    margin-left: 50px;
+}
+
+.logout-button {
+    position: absolute;
+    right: 50px;
+}
+
+.logout-button a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #FFF9C4;
+    border-radius: 5px;
+}
+
+.header-title {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* form */
+
+#container {
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2% 0;
+    box-sizing: border-box;
+}
+
+.content-box {
+    background-color: #FFFFFF;
+    width: 70%;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    box-shadow: 5px 5px 10px rgb(196, 196, 196);
+    padding: 2% 4%;
+    height: fit-content;
+    min-height: 660px;
+}
+
+/* Header Row */
+.header-info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.header-info-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.header-input {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#form-name {
+    width: 100%;
+    border: solid 2px #e0e0e0;
+    height: 45px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(196, 196, 196);
+    padding: 0 15px;
+    color: #000000;
+    font-size: 16px;
+}
+
+#form-type-dropdown {
+    width: 100%;
+    color: #000000;
+    height: 45px;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(196, 196, 196);
+    padding-left: 15px;
+    appearance: none;
+    background-image: url("../asset/arrow-down.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    font-size: 16px;
+}
+
+/* Edit Icon styles */
+.edit-icon-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.edit-icon-btn i {
+    font-size: 25px;
+    color: #000000;
+}
+
+.edit-icon-btn a {
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+.mobile-only-icon {
+    display: none;
+}
+
+.desktop-only-icon {
+    display: flex;
+}
+
+/* FOR NEW FIELD */
+
+.container-field {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    margin-top: 45px;
+}
+
+.field-box {
+    width: 100%;
+    height: fit-content;
+    box-shadow: 3px 3px 10px rgb(196, 196, 196);
+    padding: 20px 20px 20px 20px;
+    border-radius: 7px 0 0 7px;
+}
+
+.statement-type {
+    display: flex;
+    flex-direction: row;
+}
+
+.statement {
+    width: 60%;
+    margin-bottom: 30px;
+}
+
+.statement-title {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.statement-input {
+    border: none;
+    border-bottom: solid 2px #e0e0e0;
+    border-radius: 3px;
+    height: 35px;
+    width: 80%;
+    padding: 5px 5px;
+    font-size: 16px;
+    color: #000000;
+}
+
+.type-answer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* answer example */
+
+.answer-title {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.answer-option select {
+    color: #000000;
+    height: 38px;
+    width: 80%;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+    padding-left: 15px;
+    appearance: none;
+    background-image: url("../asset/arrow-down.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    font-size: 16px;
+}
+
+.answer-input {
+    width: 100%;
+}
+
+.answer-input-text {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 35px;
+    padding: 0 15px;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+}
+
+.answer-input-text:hover {
+    cursor: not-allowed;
+}
+
+.multiple-field, .checklist-field, .dropdown-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    margin-bottom: 15px;
+}
+
+.options:hover {
+    cursor: not-allowed;
+}
+
+.options-label {
+    color: #000000;
+}
+
+.option-field, .value-field {
+    display: flex;
+}
+
+/* Specific spacing for Dropdown items and add box */
+.dropdown-field .option-answer-container {
+    margin-bottom: 8px;
+}
+
+.dropdown-field .value-field {
+    margin-top: 10px;
+}
+
+.multiple-input, .checklist-input, .dropdown-input {
+    width: 30%;
+    height: 35px;
+    padding: 0 15px;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+}
+
+.option-answer-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-option{
+    width: 48%;
+}
+
+.right-option{
+    width: 10%;
+}
+
+.delete-answer{
+    border: none;
+}
+
+.delete-answer:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.add-option-button, .add-value-button {
+    width: 15%;
+    background-color: #F9A825;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    margin-left: 15px;
+    height: 39px;
+    border: none;
+    border-radius: 5px;
+}
+
+.answer-input-area {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    max-width: 87%;
+    height: 80px;
+    max-height: 300px;
+    padding: 15px 15px;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+}
+
+.date-input, .time-input, .date-time-input {
+    width: 40%;
+    height: 35px;
+    padding: 0 15px;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+    color: #000000;
+}
+
+.dropdown-field select {
+    margin-bottom: 20px;
+    color: #000000;
+    height: 34px;
+    width: 30%;
+    border: solid 2px #e0e0e0;
+    border-radius: 5px;
+    padding-left: 15px;
+    appearance: none;
+    background-image: url("../asset/arrow-down.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 15px) center;
+    font-size: 16px;
+}
+
+/* delete field */
+
+.delete-button {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 7px 7px 0;
+    width: 6%;
+    box-shadow: 3px 3px 10px rgb(196, 196, 196);
+    cursor: pointer;
+}
+
+.delete-field {
+    background-color: transparent;
+    border: none;
+}
+
+.delete-field:hover {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* toggle css */
+
+.toggle {
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.toggle-label {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 58px;
+    height: 32px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background: #56c080;
+}
+
+.toggle-checkbox:checked+.toggle-switch:before {
+    left: 30px;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+/* button new field and save */
+
+#add-new-field,
+#save-button {
+    background-color: #F9A825;
+    color: #000000;
+    width: 180px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+}
+
+#add-new-field {
+    margin-top: 35px;
+}
+
+#add-new-field:hover,
+#save-button:hover {
+    background-color: #e69800;
+    cursor: pointer;
+}
+
+#save-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.form-visibility {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.form-visibility label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.form-visibility input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+#save-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+/* Delete Form Button Styles */
+.delete-form-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-form-btn {
+    background-color: red;
+    color: white;
+    width: 180px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#delete-modal {
+    background-color: rgba(0, 0, 0, 0.507);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.readonly-notice {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[readonly], select[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Responsive Adjustments */
+
+@media screen and (max-width: 768px) {
+    /* Expand the main content box */
+    .content-box {
+        width: 95%;
+        padding: 20px 15px;
+    }
+
+    /* Stack Form Name and Form Type on mobile */
+    .header-info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-info-item {
+        width: 100% !important;
+    }
+
+    .header-input, #form-name, #form-type-dropdown {
+        width: 100% !important;
+        margin-bottom: 5px;
+    }
+
+    /* Stack Question and Type of Answer inside fields */
+    .statement-type {
+        flex-direction: column;
+    }
+
+    .statement, .type-answer {
+        width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    .statement-input {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .answer-option select {
+        width: 100% !important;
+    }
+
+    /* Field Container and Delete Button */
+    .container-field {
+        flex-direction: column; /* Stacks field and delete button */
+        margin-top: 25px;
+    }
+
+    .field-box {
+        width: 100% !important;
+        border-radius: 7px 7px 0 0;
+        box-sizing: border-box;
+    }
+
+    .delete-button {
+        width: 100% !important;
+        height: 50px;
+        border-radius: 0 0 7px 7px;
+    }
+
+    /* Full-width answer previews */
+    .answer-input-text, .answer-input-area, .date-input,
+    .time-input, .date-time-input, .dropdown-field select {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .multiple-input, .checklist-input, .dropdown-input {
+        width: 65% !important;
+    }
+
+    .add-option-button, .add-value-button {
+        width: 30% !important;
+        margin-left: 10px;
+    }
+
+    /* Footer Actions stacking */
+    .footer-actions {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-visibility, #save-container, .delete-form-container {
+        width: 100%;
+        justify-content: center;
+        flex: none;
+    }
+
+    #add-new-field, #save-button, .delete-form-btn {
+        width: 100%; /* Full width buttons for easy tapping */
+    }
+
+    .header-label-row {
+        flex-direction: row; /* ensure it stays row on mobile for icon */
+        justify-content: space-between;
+    }
+
+    .mobile-only-icon {
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .desktop-only-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-title h1 {
+        font-size: 20px;
+    }
+    .back-button {
+        margin-left: 20px;
+    }
+}

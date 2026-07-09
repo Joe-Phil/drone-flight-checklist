@@ -1,0 +1,351 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.submission-content {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.top-bar-inline {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.top-bar {
+    height: 100px;
+    width: 100%;
+    background-color: #0097da;
+    color: #ffffff;
+    box-shadow: 5px 5px 10px rgb(196, 196, 196);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    margin-left: 50px;
+    color: #ffffff;
+    z-index: 10;
+}
+
+.logout-button {
+    position: absolute;
+    right: 50px;
+}
+
+
+.header-title {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 0 100px;
+}
+
+.header-title h1 {
+    font-size: 32px;
+}
+
+#container {
+    background-color: #e8e8e8;
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Header Row for Name and Download Button */
+.submission-header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 20px 0;
+    width: 100%;
+}
+
+.submission-name {
+    height: 60px;
+    background-color: #F9A825;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    width: 40%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin: 0;
+}
+
+/* Download Excel Button Styling */
+.download-container {
+    display: flex;
+    align-items: center;
+}
+
+.download-btn {
+    background-color: #F9A825;
+    color: #000000;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.download-btn:hover {
+    background-color: #e69800;
+    transform: translateY(-2px);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.submission-info {
+    margin: 0 0 30px 0;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: fit-content;
+    min-width: 40%;
+}
+
+.submission-info .info-item {
+    font-size: 14px;
+    color: #333333;
+}
+
+.submission-info .info-item strong {
+    color: #F9A825;
+    margin-right: 8px;
+}
+
+.answer-container{
+    overflow: visible;
+    padding: 0;
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.group:hover{
+    cursor: default;
+}
+
+.group-title{
+    width: 100%;
+    background-color: #F9A825;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    border-bottom: solid 2px #ffffff;
+    margin: 0;
+}
+
+.assessment-group-title, .pre-flight-group-title, .post-flight-group-title {
+    color: #000000 !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
+    width: 100% !important;
+    font-family: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+}
+
+.all-question {
+    padding: 20px;
+    display: block !important;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 2px #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #000000;
+    font-size: 16px;
+    min-width: 600px;
+    table-layout: auto !important;
+}
+
+th {
+    background-color: #828282 !important;
+    color: #000000 !important;
+    height: auto !important;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #e0e0e0;
+    border-bottom: solid 2px #e0e0e0;
+    white-space: normal !important;
+    overflow: visible !important;
+}
+
+td {
+    height: auto !important;
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    vertical-align: top;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    max-width: none !important;
+}
+
+/* links for image answers should stack vertically */
+.response-link-wrapper {
+    display: block;
+    margin-bottom: 6px;
+}
+.response-link {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+
+.col-1 {
+    width: 35%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.col-2 {
+    width: 65%;
+    text-align: center;
+}
+
+.col-3 {
+    width: 20%;
+    text-align: center;
+}
+
+/* Responsive table and content */
+@media (max-width: 768px) {
+    .submission-content {
+        width: 94%;
+    }
+
+    .back-button {
+        margin-left: 50px;
+    }
+
+    .header-title {
+        padding: 0 50px;
+    }
+
+    .header-title h1 {
+        font-size: 24px;
+    }
+
+    .submission-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .submission-name {
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        padding: 10px;
+    }
+
+    .download-container {
+        width: 100%;
+    }
+
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .submission-info {
+        width: 100%;
+        margin: 0 0 20px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .all-question {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px 12px;
+        white-space: normal !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-button {
+        margin-left: 20px;
+    }
+
+    .header-title {
+        padding: 0 45px;
+    }
+
+    .header-title h1 {
+        font-size: 20px;
+    }
+}
+
+.group-title div {
+    font-family: inherit !important;
+}
+
+.group-title .assessment-group-title,
+.group-title .pre-flight-group-title,
+.group-title .post-flight-group-title {
+    all: unset !important;
+    color: #000000 !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
+    width: 100% !important;
+    font-family: inherit !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    display: block !important;
+}

@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {    
+    overflow-y: auto;
+    background-color: #e8e8e8;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+#sidebar-menu {
+    width: 240px;
+    min-width: 240px;
+    flex-shrink: 0;
+    background-color: #0097da;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow: hidden;
+    transition: left 0.3s ease;
+}
+
+.absolute {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+}
+
+.menu a {
+    padding: 6px 8px 6px 20px;
+    text-decoration: none;
+    height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.active-menu {
+    background-color: #d4d4d4;
+    color:#000000;
+    width: calc(100% - 16px);
+    margin-right: 16px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.active-menu a {
+    color: #1a1a1a;
+}
+
+.sidebar-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding: 15px 0 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+#sidebar-menu .global-footer-note {
+    position: static !important;
+    padding: 0 12px;
+    margin: 0;
+    font-size: 12px;
+    font-style: italic;
+    color: #FFFFFF;
+}
+
+/*Dashboard*/
+
+.dashboard-container{
+    flex: 1;
+    min-width: 0;
+    margin: 75px;
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+    width: 50%;
+}
+
+.all-card-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 50px;
+    gap: 25px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    flex: 1;
+    min-height: 100px;
+    height: auto;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.card-data {
+    font-size: 50px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1;
+}
+
+.card-title {
+    padding: 20px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mid{
+    margin: 0;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* recent data */
+
+.recent-title {
+    font-size: 16px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.recent-title i {
+    font-size: 0.9em;
+    margin-right: 12px;
+}
+
+.table-container {
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-data{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 96%;
+    height: 80px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border-left: 6px solid #0097da;
+    border-right: solid 50px #e0e0e0;
+    background-color: #f5f5f5;
+    color: #000000;
+    font-size: 18px;
+}
+
+.col-1{
+    width: 5%;
+    text-align: center;
+}
+
+.col-2{
+    width: 40%;
+    text-align: center;
+}
+
+.col-3{
+    width: 10%;
+    text-align: center;
+}
+
+.col-4{
+    width: 10%;
+    text-align: center;
+}
+
+.col-5{
+    width: 25%;
+    text-align: center;
+}
+
+.col-6{
+    width: 10%;
+    text-align: center;
+}
+
+
+/* Global footer note */
+.global-footer-note {
+  position: fixed;
+  left: 12px;
+  bottom: 10px;
+  font-size: 14px;
+  color: #000000;
+  font-style: italic;
+  z-index: 9999;
+}
+
+@media (max-width: 1400px) {
+  #hamburger-menu {
+    display: block !important;
+  }
+
+  #sidebar-menu {
+    position: fixed !important;
+    left: -240px; /* Hide off-screen */
+    top: 0;
+    bottom: 0;
+    z-index: 10000;
+    width: 240px !important;
+    min-width: 240px !important;
+    height: 100% !important;
+    background-color: #0097da;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+  }
+
+  #sidebar-menu.active {
+    left: 0;
+  }
+
+  .dashboard-container {
+    margin: 20px !important;
+    width: auto !important;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .top-bar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+  }
+
+  .dashboard-title {
+    width: auto !important;
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .all-card-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    box-sizing: border-box;
+  }
+
+  .card {
+    width: 100% !important;
+    margin: 0 0 10px 0 !important;
+    box-sizing: border-box;
+  }
+
+  .table-data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    width: 100% !important;
+    padding: 20px;
+    border-right: none !important;
+    border-left: 6px solid #0097da;
+    box-sizing: border-box;
+    position: relative;
+    background: #ffffff;
+  }
+
+  .col-1 {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: auto !important;
+    font-size: 24px;
+    opacity: 0.2;
+    margin: 0 !important;
+  }
+
+  .col-2 {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 20px;
+    font-weight: 800 !important;
+    color: #333;
+    margin-bottom: 12px !important;
+    white-space: normal;
+    padding-right: 45px;
+    box-sizing: border-box;
+  }
+
+  .col-3, .col-4, .col-5 {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 14px;
+    font-weight: normal !important;
+    color: #666;
+    margin-bottom: 6px !important;
+    display: block;
+  }
+
+  .col-3::before { content: "Type: "; font-weight: bold; color: #444; }
+  .col-4::before { content: "By: "; font-weight: bold; color: #444; }
+  .col-5::before { content: "Date: "; font-weight: bold; color: #444; }
+}
