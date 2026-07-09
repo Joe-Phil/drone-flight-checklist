@@ -19,3 +19,6 @@ This project aims to change the concept of form checking for drone from manual f
 1. Open Link in New Tab: "http://localhost/drone-flight-checklist/" to open Login Page
 2. Login or Register Account
 3. If done Registering Account, go login with Username and Password that is registered
+
+# MOBILE
+1. Go to Link: 
