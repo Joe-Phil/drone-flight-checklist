@@ -7,8 +7,8 @@ include 'class/ui/forms-ui.php';
 include 'class/ui/forms-view-ui.php';
 include 'class/ui/templates-ui.php';
 include 'class/ui/templates-view-ui.php';
-// include 'class/ui/template-fill-ui.php';
-// include 'class/ui/form-fill-ui.php';
+include 'class/ui/template-fill-ui.php';
+include 'class/ui/form-fill-ui.php';
 include 'class/ui/submissions-ui.php';
 include 'class/ui/submissions-view-ui.php';
 include 'class/ui/mobile-ui.php';
@@ -24,6 +24,9 @@ class Main{
     private $ui = null;
 
     public function __construct(){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $this->masterDatabase = new MasterDatabase();
         $this->init();
     }
@@ -64,7 +67,6 @@ class Main{
                     $this->ui = new TemplatesViewUI($this->masterDatabase, $id);
                     $this->ui->getView();
                     break;
-                /*
                 case 'fillTemplate':
                     $templateId = $_GET['templateId'];
                     $this->ui = new TemplateFillUI($this->masterDatabase, $templateId);
@@ -77,7 +79,6 @@ class Main{
                     $this->ui = new FormFillUI($this->masterDatabase, $formId, $templateId, $formType);
                     $this->ui->getView();
                     break;
-                */
                 case 'submissions':
                     $this->ui = new SubmissionsUI($this->masterDatabase);
                     $this->ui->getView();
