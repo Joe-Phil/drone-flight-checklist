@@ -8,11 +8,30 @@ $(document).ready(function () {
         loadData();
         handleUI();
         handleDeleteModal();
+        updateDurationVisibility();
     }
 
     function isReadOnly() {
         return $('#is-readonly').val() === '1';
     }
+
+    function updateDurationVisibility() {
+        let formType = $('#form-type-dropdown').val();
+        if (formType === 'post') {
+            $('.duration-option').show();
+        } else {
+            $('.duration-option').hide();
+            $('.title-field-input-dropdown').each(function() {
+                if ($(this).val() === 'duration' && formType !== 'post') {
+                    $(this).val('text').trigger('change');
+                }
+            });
+        }
+    }
+
+    $('#form-type-dropdown').on('change', function() {
+        updateDurationVisibility();
+    });
 
     function loadData(){
         let $formId = $('#form-id')[0].value;
@@ -29,6 +48,7 @@ $(document).ready(function () {
                 $('#form-name')[0].value = $json.formName;
                 $('#form-type-dropdown')[0].value = $json.formType;
                 question = questionId + 1;
+                updateDurationVisibility();
             }
         }
     }
@@ -182,6 +202,7 @@ $(document).ready(function () {
                                                 <option value="date">Date</option>
                                                 <option value="time">Time</option>
                                                 <option value="datetime">Date Time</option>
+                                                <option value="duration" class="duration-option">Duration</option>
                                                 <option value="dropdown">Dropdown</option>
                                                 <option value="photo">Photo</option>
                                             </select>
@@ -238,6 +259,7 @@ $(document).ready(function () {
                                             <option value="date" ${data.type === "date" ? "selected" : ""}>Date</option>
                                             <option value="time" ${data.type === "time" ? "selected" : ""}>Time</option>
                                             <option value="datetime" ${data.type === "datetime" ? "selected" : ""}>Date Time</option>
+                                            <option value="duration" class="duration-option" ${data.type === "duration" ? "selected" : ""}>Duration</option>
                                             <option value="dropdown" ${data.type === "dropdown" ? "selected" : ""}>Dropdown</option>
                                             <option value="photo" ${data.type === "photo" ? "selected" : ""}>Photo</option>
                                         </select>
@@ -250,7 +272,6 @@ $(document).ready(function () {
                                 </div>
                             </div>
             `;
-            // for edit
             if (data.type === 'text') {
                 html = html + `
                             <div id="answer-${question}" class="text-field bot-field">
@@ -306,6 +327,27 @@ $(document).ready(function () {
                 html = html + `
                             <div id="answer-${question}" class="time-field bot-field">
                                 <input class="time-input" type="time" disabled>
+                            </div>
+                `;
+            } else if (data.type === 'duration') {
+                html = html + `
+                            <div id="answer-${question}" class="duration-field bot-field">
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+                                    <div style="display: flex; gap: 10px;">
+                                        <div style="flex: 1;">
+                                            <small style="color: #666;">Take Off</small>
+                                            <input class="time-input" type="time" disabled style="width: 100%;">
+                                        </div>
+                                        <div style="flex: 1;">
+                                            <small style="color: #666;">Landing</small>
+                                            <input class="time-input" type="time" disabled style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div style="width: 50;">
+                                        <small style="color: #666;">Total Duration</small>
+                                        <input class="time-input" type="text" placeholder="00:00" disabled style="width: 100%;">
+                                    </div>
+                                </div>
                             </div>
                 `;
             } else if (data.type === 'datetime') {
@@ -447,6 +489,28 @@ $(document).ready(function () {
                                 </div>
                             `;
                             $('#photo-options-'+question).hide();
+                        } else if (val === 'duration') {
+                            newField = `
+                                <div id="answer-${question}" class="duration-field bot-field">
+                                    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+                                        <div style="display: flex; gap: 10px;">
+                                            <div style="flex: 1;">
+                                                <small style="color: #666;">Take Off</small>
+                                                <input class="time-input" type="time" disabled style="width: 100%;">
+                                            </div>
+                                            <div style="flex: 1;">
+                                                <small style="color: #666;">Landing</small>
+                                                <input class="time-input" type="time" disabled style="width: 100%;">
+                                            </div>
+                                        </div>
+                                        <div style="width: 50%;">
+                                            <small style="color: #666;">Total Duration</small>
+                                            <input class="time-input" type="text" placeholder="00:00" disabled style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            $('#photo-options-'+question).hide();
                         } else if (val === 'datetime') {
                             newField = `
                                 <div id="answer-${question}" class="datetime-field bot-field">
@@ -568,7 +632,7 @@ $(document).ready(function () {
             $('#delete-modal').hide();
         });
 
-        // Close modal when clicking outside of the confirmation container
+
         $('#delete-modal').on('click', function(e) {
             if (e.target.id === 'delete-modal') {
                 $(this).hide();
